@@ -12,12 +12,12 @@ Describe $global:TestLocalizedData.Module.Describe -Tags "Online", "Offline" {
             $Result = $true
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
     
     It $global:TestLocalizedData.Module.CommandCheck {
         $Commands = Get-Command -Module Bca.Spdx
-        $Commands.Count | Should BeGreaterThan 0
+        $Commands.Count | Should -BeGreaterThan 0
     }
 }
 
@@ -28,7 +28,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseFile.Describe -Tags "Online", "
             $Result = Get-SpdxLicenseFile
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -39,7 +39,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionFile.Describe -Tags "O
             $Result = Get-SpdxLicenseExceptionFile
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -50,7 +50,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = (Get-SpdxLicense -Name "BSD*").Count
         }
         catch { $Result = 0 }
-        $Result | Should BeGreaterThan 1
+        $Result | Should -BeGreaterThan 1
     }
     
     It $global:TestLocalizedData.GetSpdxLicenseOffline.ById {
@@ -59,7 +59,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = (Get-SpdxLicense -Id "BSD*").Count
         }
         catch { $Result = 0 }
-        $Result | Should BeGreaterThan 1
+        $Result | Should -BeGreaterThan 1
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseOffline.ByReferenceNumber {
@@ -68,7 +68,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = Get-SpdxLicense -ReferenceNumber 315
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseOffline.ByReferenceNumberExclude {
@@ -77,7 +77,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = Get-SpdxLicense -Id "AGPL-1.0" -ExcludeDeprecated
         }
         catch { $Result = $true }
-        $Result | Should Be $null
+        $Result | Should -Be $null
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseOffline.Osi {
@@ -86,7 +86,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = Get-SpdxLicense -Id "AGPL-1.0" -OsiApproved
         }
         catch { $Result = $true }
-        $Result | Should Be $null
+        $Result | Should -Be $null
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseOffline.Fsf {
@@ -95,7 +95,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = Get-SpdxLicense -Id "AGPL-1.0" -FsfLibre
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseOffline.OsiFsfExclude {
@@ -104,7 +104,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOffline.Describe -Tags "Online"
             $Result = (Get-SpdxLicense -OsiApproved -FsfLibre -ExcludeDeprecated).Count
         }
         catch { $Result = 0 }
-        $Result | Should BeGreaterThan 1
+        $Result | Should -BeGreaterThan 1
     }
 }
 
@@ -115,7 +115,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.Describe -Tags
             $Result = (Get-SpdxLicenseException -Name "*GPL*").Count
         }
         catch { $Result = 0 }
-        $Result | Should BeGreaterThan 1
+        $Result | Should -BeGreaterThan 1
     }
     
     It $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.ById {
@@ -124,7 +124,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.Describe -Tags
             $Result = (Get-SpdxLicenseException -Id "*GPL*").Count
         }
         catch { $Result = 0 }
-        $Result | Should BeGreaterThan 1
+        $Result | Should -BeGreaterThan 1
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.ByReferenceNumber {
@@ -133,7 +133,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.Describe -Tags
             $Result = Get-SpdxLicenseException -ReferenceNumber 22
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.ByReferenceNumberExclude {
@@ -142,7 +142,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.Describe -Tags
             $Result = Get-SpdxLicenseException -ReferenceNumber 3 -ExcludeDeprecated
         }
         catch { $Result = $true }
-        $Result | Should Be $null
+        $Result | Should -Be $null
     }
 
     It $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.Exclude {
@@ -151,7 +151,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionOffline.Describe -Tags
             $Result = (Get-SpdxLicenseException -ExcludeDeprecated).Count
         }
         catch { $Result = 0 }
-        $Result | Should BeGreaterThan 1
+        $Result | Should -BeGreaterThan 1
     }
 }
 
@@ -162,7 +162,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseOnline.Describe -Tags "Online" 
             $Result = (Get-SpdxLicense -Id "0BSD" -LicenseText).licenseText
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -173,7 +173,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionOnline.Describe -Tags 
             $Result = (Get-SpdxLicenseException -Id "Nokia-Qt-exception-1.1" -ExceptionText).licenseExceptionText
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -184,7 +184,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseText.Describe -Tags "Online" {
             $Result = Get-SpdxLicenseText -Id "0BSD"
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -195,7 +195,7 @@ Describe $global:TestLocalizedData.GetSpdxLicenseExceptionText.Describe -Tags "O
             $Result = Get-SpdxLicenseExceptionText -Id "Nokia-Qt-exception-1.1"
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -207,7 +207,7 @@ Describe $global:TestLocalizedData.UpdateSpdxLicenseOnline.Describe -Tags "Onlin
             $Result = $true
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -219,7 +219,7 @@ Describe $global:TestLocalizedData.UpdateSpdxLicenseExceptionOnline.Describe -Ta
             $Result = $true
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -231,7 +231,7 @@ Describe $global:TestLocalizedData.UpdateSpdxLicenseOffline.Describe -Tags "Onli
             $Result = $true
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
 
@@ -243,6 +243,6 @@ Describe $global:TestLocalizedData.UpdateSpdxLicenseExceptionOffline.Describe -T
             $Result = $true
         }
         catch { $Result = $false }
-        $Result | Should Be $true
+        $Result | Should -Be $true
     }
 }
