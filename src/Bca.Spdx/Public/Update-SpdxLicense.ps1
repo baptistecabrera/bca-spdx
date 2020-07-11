@@ -38,7 +38,7 @@ function Update-SpdxLicense
         [Parameter(ParameterSetName = "FromUri", Mandatory = $false)]
         [ValidateNotNullOrEmpty()]
         [Alias("u")]
-        [string] $Uri = "https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json",
+        [string] $Uri = "$($script:SourceFileBaseUrl)licenses.json",
         [Parameter(ParameterSetName = "FromUri", Mandatory = $false)]
         [Alias("t")]
         [int] $Timeout,

@@ -40,7 +40,7 @@ function Update-SpdxLicenseException
         [Parameter(ParameterSetName = "FromUri", Mandatory = $false)]
         [ValidateNotNullOrEmpty()]
         [Alias("u")]
-        [string] $Uri = "https://raw.githubusercontent.com/spdx/license-list-data/master/json/exceptions.json",
+        [string] $Uri = "$($script:SourceFileBaseUrl)exceptions.json",
         [Parameter(ParameterSetName = "FromUri", Mandatory = $false)]
         [Alias("t")]
         [int] $Timeout,

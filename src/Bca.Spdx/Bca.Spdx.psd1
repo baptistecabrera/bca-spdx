@@ -4,7 +4,7 @@
     RootModule    = 'Bca.Spdx'
 
     # Version number of this module.
-    ModuleVersion = '0.0.4'
+    ModuleVersion = '0.0.6'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -93,13 +93,16 @@
             # LicenseUri = ''
 
             # A URL to the main website for this project.
-            ProjectUri   = 'https://spdx.org/'
+            ProjectUri   = 'https://github.com/bapcabrera/bca-spdx'
 
             # A URL to an icon representing this module.
             IconUri      = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = '0.0.4: 
+            ReleaseNotes = '0.0.6:
+- Update-SpdxLicense*: Added variabilization of the source URL.
+
+0.0.5: 
 - Test-SpdxLicenseExpression: New function to test license expression to be used in packaging. 
 - Enhanced language support. 
  

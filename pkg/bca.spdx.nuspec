@@ -3,7 +3,7 @@
   <metadata>
     <!--mandatory-->
     <id>Bca.Spdx</id>
-    <version>0.0.4</version>
+    <version>0.0.6</version>
     <authors>Baptiste Cabrera</authors>
     <!--optional with default-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,14 @@
     <copyright>(c) 2020 Bca. All rights reserved.</copyright>
     <description>PowerShell module to interract with SPDX licences information.</description>
     <projectUrl>https://spdx.org/</projectUrl>
-    <releaseNotes>0.0.4: 
+    <releaseNotes>0.0.6:
+- Update-SpdxLicense*: Added variabilization of the source URL.
+
+0.0.5: 
+- Test-SpdxLicenseExpression: New function to test license expression to be used in packaging. 
+- Enhanced language support. 
+
+0.0.4: 
 - Test-SpdxLicenseExpression: New function to test license expression to be used in packaging. 
 - Enhanced language support. 
  
