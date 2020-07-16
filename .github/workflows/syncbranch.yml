@@ -1,0 +1,21 @@
+name: Sync branches to Azure DevOps
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!master'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: franzdiebold/github-env-vars-action@v1.1.2
+      - uses: actions/checkout@v1
+      - name: Sync Branch
+        uses: wei/git-sync@v2.0.0
+        with:
+          source_repo: "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPOSITORY_OWNER }}/${{ env.GITHUB_REPOSITORY_NAME }}.git"
+          source_branch: "${{ env.GITHUB_REF_NAME }}"
+          destination_repo: "https://${{ env.GITHUB_REPOSITORY_OWNER }}:${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}@dev.azure.com/${{ env.GITHUB_REPOSITORY_OWNER }}/${{ secrets.ADO_PROJECT_NAME }}/_git/${{ env.GITHUB_REPOSITORY_NAME }}"
+          destination_branch: "${{ env.GITHUB_REF_NAME }}"
