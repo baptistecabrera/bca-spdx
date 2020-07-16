@@ -13,9 +13,16 @@ It can be used to help you build your packages manifest before uploading it by t
 - All information provided by _Bca.Spdx_ comes from the _Software Package Data Exchange_, I am not the owner of this information, nor am I affiliated with _SPDX_.
 - _Bca.Spdx_ has been created to answer my needs to streamline my package automation, but I provide it to people who may need such a tool.
 - It may contain bugs or lack some features, in this case, feel free to open an issue, and I'll manage it as best as I can.
-- This _GitHub_ repository is not the primary one, see transparency for more information.
+- This _GitHub_ repository is not the primary one, but you are welcome to contribute, see transparency for more information.
 
 ## How to install
+
+### The easiest way
+
+In a PowerShell console, run the following:
+```ps
+Find-Module -Name Bca.Jwt | Install-Module
+```
 
 ### Package
 
@@ -31,14 +38,28 @@ I'll advise you use a path with the version, that can be found in the module man
 
 _Please not that to date I am the only developper for this module._
 
-All code is stored on a private Git repository on Azure DevOps.
+- All code is primarily stored on a private Git repository on Azure DevOps;
+- Issues opened in GitHub create a bug in Azure DevOps;
+- All pushes made in GitHub are synced to Azure DevOps (that includes all branches except `master`);
+- When a GitHub Pull Request is submitted, it is analyzed and merged in `develop` on GitHub, then synced to Azure DevOps that will trigger the CI;
+- A Pull Request is then submitted in Azure DevOps to merge `develop` to `master`, it runs the CI again;
+- Once merged to `master`, the CI is one last time, but this time it will create a Chocolatey and a NuGet packages that are pushed on private Azure DevOps Artifacts feeds;
+- If the CI succeeds and the packages are well pushed, the CD is triggered.
 
-When a pull request is submitted, it runs an Azure DevOps build pipeline that tests the module with _[Pester](https://pester.dev/)_ tests and runs the _[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)_.
+### CI
 
-Once merged, the build pipeline is run again, but this time it will:
-- Mirror the repository to _GitHub_;
-- Create a Chocolatey and a NuGet packages that are pushed on private Azure DevOps Artifacts feeds.
+The CI is an Azure DevOps build pipeline that will:
+- Test the module with _[Pester](https://pester.dev/)_ tests;
+- Run the _[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)_;
+- Mirror the repository to GitHub
 
-If the build succeeds and the packages are well pushed, an Azure DevOps release pipeline is trigerred that will:
-- In a **Prerelease** step, install both Chocolatey and Nuget packages from the private feed, and run tests again. If tests are successful, the packages are promoted to `@Prerelease` view inside the private feed;
+| Branch       | Status  |
+| ------------ | ------- |
+| `master`     | [![Build status](https://dev.azure.com/baptistecabrera/Bca/_apis/build/status/Bca.Spdx?branchName=master)](https://dev.azure.com/baptistecabrera/Bca/_build/latest?definitionId=2?branchName=master) |
+| `develop`    | [![Build status](https://dev.azure.com/baptistecabrera/Bca/_apis/build/status/Bca.Spdx?branchName=develop)](https://dev.azure.com/baptistecabrera/Bca/_build/latest?definitionId=2?branchName=develop) |
+
+### CD
+
+The CD is an Azure DevOps release pipeline is trigerred that will:
+- In a **Prerelease** step, install both Chocolatey and Nuget packages from the private feed in a container, and run tests again. If tests are successful, the packages are promoted to `@Prerelease` view inside the private feed;
 - In a **Release** step, publish the packages to _[NuGet](https://www.nuget.org/)_ and _[Chocolatey](https://chocolatey.org/)_, and publish the module to _[PowerShell Gallery](https://www.powershellgallery.com/)_, then promote the packages to to `@PRelease` view inside the private feed.
