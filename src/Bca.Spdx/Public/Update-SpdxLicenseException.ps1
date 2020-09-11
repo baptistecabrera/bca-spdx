@@ -6,7 +6,7 @@ function Update-SpdxLicenseException
         .DESCRIPTION
             Updates SPDX License exceptions list.
         .PARAMETER Uri
-            A string containing the URI of the content to update list from.
+            A URI containing the URI of the content to update list from.
         .PARAMETER Timeout
             An integer containing the timeout in seconds for the web request.
         .PARAMETER Path
@@ -40,7 +40,7 @@ function Update-SpdxLicenseException
         [Parameter(ParameterSetName = "FromUri", Mandatory = $false)]
         [ValidateNotNullOrEmpty()]
         [Alias("u")]
-        [string] $Uri = "$($script:SourceFileBaseUrl)exceptions.json",
+        [uri] $Uri = "$((Get-SpdxSourceUrl).AbsoluteUri)exceptions.json",
         [Parameter(ParameterSetName = "FromUri", Mandatory = $false)]
         [Alias("t")]
         [int] $Timeout,

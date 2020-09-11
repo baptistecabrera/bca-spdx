@@ -1,1 +1,2 @@
 $script:SourceFileBaseUrl = "https://raw.githubusercontent.com/spdx/license-list-data/master/json/"
+[uri] $script:FileSourceUrl = "https://raw.githubusercontent.com/spdx/license-list-data/master/json/"

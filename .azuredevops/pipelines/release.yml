@@ -1,0 +1,60 @@
+parameters:
+- name: nugetPub
+  displayName: Publish NuGet Package
+  type: boolean
+  default: true
+- name: chocoPub
+  displayName: Publish Chocolatey Package
+  type: boolean
+  default: false
+- name: true
+  displayName: Publish to PS Gallery
+  type: boolean
+  default: true
+- name: testWindows
+  displayName: Test on Windows
+  type: boolean
+  default: true
+- name: testLinux
+  displayName: Test on Linux
+  type: boolean
+  default: true
+- name: testMacOs
+  displayName: Test on MacOS
+  type: boolean
+  default: true
+
+trigger:
+- none
+
+resources:
+  pipelines:
+  - pipeline: Build
+    source: Build\Bca.Spdx
+    trigger: 
+      branches:
+      - master
+  repositories:
+    - repository: build-tools
+      type: git
+      name: build-tools
+
+variables:
+- template: pipelines/azuredevops/variables/all.yml@build-tools
+
+stages: 
+- template: pipelines/azuredevops/pipeline-release-ps.yml@build-tools
+  parameters:
+    psName: $(resources.pipeline.Build.pipelineName)
+    artifactPath: $(Pipeline.Workspace)/Build/$(resources.pipeline.Build.pipelineName)-$(resources.pipeline.Build.runName)
+    psType: Module
+    nugetName: $(resources.pipeline.Build.pipelineName)
+    nugetFeed: ${{ variables.nugetFeedName }}
+    nugetPub: ${{ parameters.nugetPub }}
+    psGalPub: ${{ parameters.psGalPub }}
+    chocoName: $(Build.Repository.Name)
+    chocoFeed: ${{ variables.chocoFeedName }}
+    chocoPub: ${{ parameters.chocoPub }}
+    testWindows: ${{ parameters.testWindows }}
+    testLinux: ${{ parameters.testLinux }}
+    testMacOs: ${{ parameters.testMacOs }}
