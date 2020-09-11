@@ -24,7 +24,7 @@ function Get-SpdxLicenseFile
 
     try 
     {
-        $LicensesFilePath = Join-Path (Split-Path $PSScriptRoot -Parent) "licenses\licenses.json"
+        $LicensesFilePath = Join-Path (Split-Path $PSScriptRoot -Parent) "licenses/licenses.json"
         if (Test-Path $LicensesFilePath) { Get-Item -Path $LicensesFilePath }
         else { Write-Error -Message ($global:LocalizedData.GetSpdxLicenseFile.Error.Message -f $LicensesFilePath) -Category ObjectNotFound -CategoryActivity $MyInvocation.MyCommand -TargetName $LicensesFilePath -TargetType $global:LocalizedData.GetSpdxLicenseFile.Error.Target -Exception ObjectNotFoundException }
     }
