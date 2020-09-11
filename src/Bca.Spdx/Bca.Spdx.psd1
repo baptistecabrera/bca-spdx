@@ -4,7 +4,7 @@
     RootModule    = 'Bca.Spdx'
 
     # Version number of this module.
-    ModuleVersion = '0.0.8'
+    ModuleVersion = '0.1.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -84,38 +84,35 @@
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData   = @{
 
-        PSData = @{
+        License          = "GPL-3.0-or-later"
+
+        docsUrl          = "https://github.com/baptistecabrera/bca-spdx/doc"
+        mailingListUrl   = "https://github.com/baptistecabrera/bca-spdx/issues"
+        bugTrackerUrl    = "https://github.com/baptistecabrera/bca-spdx/issues"
+        packageSourceUrl = "https://github.com/baptistecabrera/bca-spdx/src"
+        projectSourceUrl = "https://github.com/baptistecabrera/bca-spdx/src"
+
+        PSData           = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags         = @('PowerShell', 'SPDX', 'SoftwarePackageDataExchange', 'Licence', 'Exception', 'FSF', 'OSI', 'FreeSoftwareFoundation', 'OpenSourceInitiative')
+            Tags         = @('PowerShell', 'SPDX', 'SoftwarePackageDataExchange', 'Licence', 'Exception', 'FSF', 'OSI', 'FreeSoftwareFoundation', 'OpenSourceInitiative', "Windows", "Linux", "MacOS")
 
             # A URL to the license for this module.
-            # LicenseUri = ''
+            LicenseUri   = 'https://spdx.org/licenses/GPL-3.0-or-later.html'
 
             # A URL to the main website for this project.
-            ProjectUri   = 'https://github.com/bapcabrera/bca-spdx'
+            ProjectUri   = 'https://github.com/baptistecabrera/bca-spdx'
 
             # A URL to an icon representing this module.
             IconUri      = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = '0.0.6:
-- Update-SpdxLicense*: Added variabilization of the source URL.
-
-0.0.5: 
-- Test-SpdxLicenseExpression: New function to test license expression to be used in packaging. 
-- Enhanced language support. 
- 
-0.0.3: 
-- Update-SpdxLicense: Added Timeout parameter to control the web request timeout. 
-- Added update of licenses and exceptions when importing the module. 
-- Added French support. 
- 
-0.0.2: 
-- Added License Exceptions support. 
- 
-0.0.1: 
-- First release.'
+            ReleaseNotes = '0.1.0:
+- Supports SPDX licenses and license exceptions;
+- Supports Windows, Linux and MacOS;
+- Supports languages for English and French;
+- Minor fixes and enhancements;
+- Now distributed under GPL 3.0 license.'
 
             # Prerelease of this module
             Prerelease   = ''

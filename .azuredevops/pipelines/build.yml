@@ -1,0 +1,56 @@
+parameters:
+- name: nugetPush
+  displayName: Publish NuGet Package
+  type: boolean
+  default: true
+- name: chocoPush
+  displayName: Publish Chocolatey Package
+  type: boolean
+  default: true
+- name: testWindows
+  displayName: Test on Windows
+  type: boolean
+  default: true
+- name: testLinux
+  displayName: Test on Linux
+  type: boolean
+  default: true
+- name: testMacOs
+  displayName: Test on MacOS
+  type: boolean
+  default: true
+
+trigger:
+  branches:
+    include:
+    - develop
+    - master
+  paths:
+    exclude:
+    - .azuredevops/**
+    - .github/**
+
+resources:
+  repositories:
+    - repository: build-tools
+      type: git
+      name: build-tools
+
+variables:
+- template: pipelines/azuredevops/variables/all.yml@build-tools
+
+stages: 
+- template: pipelines/azuredevops/pipeline-build-ps.yml@build-tools
+  parameters:
+    psName: $(Build.DefinitionName)
+    psType: Module
+    sourceDirectory: $(Build.Repository.LocalPath)/src/$(Build.DefinitionName)
+    nugetName: $(Build.DefinitionName)
+    nugetFeed: ${{ variables.nugetFeedName }}
+    nugetPush: ${{ parameters.nugetPush }}
+    chocoName: $(Build.Repository.Name)
+    chocoFeed: ${{ variables.chocoFeedName }}
+    chocoPush: ${{ parameters.chocoPush }}
+    testWindows: ${{ parameters.testWindows }}
+    testLinux: ${{ parameters.testLinux }}
+    testMacOs: ${{ parameters.testMacOs }}
