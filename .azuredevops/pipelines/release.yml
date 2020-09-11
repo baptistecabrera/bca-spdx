@@ -6,8 +6,8 @@ parameters:
 - name: chocoPub
   displayName: Publish Chocolatey Package
   type: boolean
-  default: false
-- name: true
+  default: true
+- name: psGalPub
   displayName: Publish to PS Gallery
   type: boolean
   default: true
