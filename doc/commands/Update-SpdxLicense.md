@@ -1,5 +1,6 @@
 # Update-SpdxLicense
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Updates SPDX License list.
@@ -7,21 +8,21 @@ Updates SPDX License list.
 Updates SPDX License list.
 ## Syntax
 ### FromUri (default)
-```ps
+```powershell
 Update-SpdxLicense [-Uri <uri>] [-Timeout <int>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 ### FromPath
-```ps
+```powershell
 Update-SpdxLicense -Path <string> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 ## Examples
 ### Example 1
-```ps
+```powershell
 Update-SpdxLicense -Path ".\licenses.json"
 ```
 This example will update the list from the file ".\licenses.json".
 ### Example 2
-```ps
+```powershell
 Get-SpdxLicense -Uri "https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json" -Force
 ```
 This example will update the list from the URI "https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json".
@@ -81,8 +82,10 @@ A switch pecifying whether or not to force the update (overrides WhatIf if speci
 ## Inputs
 ****
 
+
 ## Outputs
 ****
+
 
 ## Related Links
 - [Get-SpdxLicense](Get-SpdxLicense.md)
