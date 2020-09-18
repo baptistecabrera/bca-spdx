@@ -1,5 +1,6 @@
 # Update-SpdxLicenseException
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Updates SPDX License exceptions list.
@@ -7,21 +8,21 @@ Updates SPDX License exceptions list.
 Updates SPDX License exceptions list.
 ## Syntax
 ### FromUri (default)
-```ps
+```powershell
 Update-SpdxLicenseException [-Uri <uri>] [-Timeout <int>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 ### FromPath
-```ps
+```powershell
 Update-SpdxLicenseException -Path <string> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 ## Examples
 ### Example 1
-```ps
+```powershell
 Update-SpdxLicenseException -Path ".\exceptions.json"
 ```
 This example will update the list from the file ".\exceptions.json".
 ### Example 2
-```ps
+```powershell
 Get-SpdxLicense -Uri "https://raw.githubusercontent.com/spdx/license-list-data/master/json/exceptions.json" -Force
 ```
 This example will update the list from the URI "https://raw.githubusercontent.com/spdx/license-list-data/master/json/exceptions.json".
@@ -81,8 +82,10 @@ A switch pecifying whether or not to force the update (overrides WhatIf if speci
 ## Inputs
 ****
 
+
 ## Outputs
 ****
+
 
 ## Related Links
 - [Get-SpdxLicenseException](Get-SpdxLicenseException.md)
