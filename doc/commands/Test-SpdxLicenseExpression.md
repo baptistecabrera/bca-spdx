@@ -1,12 +1,13 @@
 # Test-SpdxLicenseExpression
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Tests an SPDX License expression.
 ## Description
 Tests an SPDX License expression.
 ## Syntax
-```ps
+```powershell
 Test-SpdxLicenseExpression [-Expression] <string> [-OsiApproved] [-FsfLibre] [-FsfOrOsi] [-FsfAndOsi] [-ExcludeDeprecated] [<CommonParameters>]
 ```
 ## Parameters
@@ -81,9 +82,11 @@ A switch specifying to test that the expression only contains not deprecated lic
 
 ## Inputs
 **System.String**
+
 This CmdLet accepts a String containing the expression to test.
 ## Outputs
 **System.Boolean**
+
 This cmdlet returns a Boolean confirming if the expression is valid or not.
 ## Related Links
 - [Get-SpdxLicense](Get-SpdxLicense.md)

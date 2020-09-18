@@ -1,5 +1,6 @@
 # Get-SpdxLicenseException
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Gets SPDX License exceptions.
@@ -7,40 +8,40 @@ Gets SPDX License exceptions.
 Gets SPDX License exceptions.
 ## Syntax
 ### FromId (default)
-```ps
+```powershell
 Get-SpdxLicenseException [-Id <string[]>] [-ExcludeDeprecated] [-ExceptionText] [<CommonParameters>]
 ```
 ### FromName
-```ps
+```powershell
 Get-SpdxLicenseException [-Name <string[]>] [-ExcludeDeprecated] [-ExceptionText] [<CommonParameters>]
 ```
 ### FromReferenceNumber
-```ps
+```powershell
 Get-SpdxLicenseException -ReferenceNumber <int[]> [-ExcludeDeprecated] [-ExceptionText] [<CommonParameters>]
 ```
 ## Examples
 ### Example 1
-```ps
+```powershell
 Get-SpdxLicenseException -Id "Libtool-exception"
 ```
 This example will return information of the license exception "Libtool-exception" (Libtool Exception).
 ### Example 2
-```ps
+```powershell
 Get-SpdxLicenseException -Id "*GPL*"
 ```
 This example will return information of the license exceptions(s) where the ID matches "*GPL*".
 ### Example 3
-```ps
+```powershell
 Get-SpdxLicenseException -Name "Linux Syscall Note"
 ```
 This example will return information of the license exception named "Linux Syscall Note".
 ### Example 4
-```ps
+```powershell
 Get-SpdxLicenseException -Name "Autoconf exception*"
 ```
 This example will return information of the license exception(s) where the name matched "Autoconf exception*".
 ### Example 5
-```ps
+```powershell
 Get-SpdxLicenseException -ExcludeDeprecated -ExceptionText
 ```
 This example will return information of the license exception(s) that are not deprecated, and retrieve their text(s).
@@ -113,8 +114,10 @@ This option requires an Internet connection.
 ## Inputs
 ****
 
+
 ## Outputs
 **System.Management.Automation.PSCustomObject**
+
 This cmdlet returns a PSCustomObject containing the details of the license(s).
 ## Notes
 This CmdLet does not require an Internet connection, except when using switch ExceptionText.

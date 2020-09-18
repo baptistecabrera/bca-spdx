@@ -1,5 +1,6 @@
 # Get-SpdxLicense
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Gets SPDX License(s).
@@ -7,50 +8,50 @@ Gets SPDX License(s).
 Gets SPDX License(s).
 ## Syntax
 ### FromId (default)
-```ps
+```powershell
 Get-SpdxLicense [-Id <string[]>] [-OsiApproved] [-FsfLibre] [-ExcludeDeprecated] [-LicenseText] [<CommonParameters>]
 ```
 ### FromName
-```ps
+```powershell
 Get-SpdxLicense [-Name <string[]>] [-OsiApproved] [-FsfLibre] [-ExcludeDeprecated] [-LicenseText] [<CommonParameters>]
 ```
 ### FromReferenceNumber
-```ps
+```powershell
 Get-SpdxLicense -ReferenceNumber <int[]> [-OsiApproved] [-FsfLibre] [-ExcludeDeprecated] [-LicenseText] [<CommonParameters>]
 ```
 ## Examples
 ### Example 1
-```ps
+```powershell
 Get-SpdxLicense -Id "AFL-3.0"
 ```
 This example will return information of the license "AFL-3.0" (Academic Free License v3.0).
 ### Example 2
-```ps
+```powershell
 Get-SpdxLicense -Id "AFL-3.*"
 ```
 This example will return information of the license(s) where the ID matches "AFL-3.*".
 ### Example 3
-```ps
+```powershell
 Get-SpdxLicense -Name "BSD Zero Clause License"
 ```
 This example will return information of the license named "BSD Zero Clause License".
 ### Example 4
-```ps
+```powershell
 Get-SpdxLicense -Name "BSD*"
 ```
 This example will return information of the license(s) where the name matched "BSD*".
 ### Example 5
-```ps
+```powershell
 Get-SpdxLicense -FsfLibre
 ```
 This example will return information of the license(s) that are FSF Libre/Free.
 ### Example 6
-```ps
+```powershell
 Get-SpdxLicense -OsiApproved
 ```
 This example will return information of the license(s) that are OSI approved.
 ### Example 7
-```ps
+```powershell
 Get-SpdxLicense -FsfLibre -OsiApproved -ExcludeDeprecated -LicenseText
 ```
 This example will return information of the license(s) that are FSF Libre/Free AND OSI approved AND not deprecated, and retrieve their text(s).
@@ -149,8 +150,10 @@ This option requires an Internet connection.
 ## Inputs
 ****
 
+
 ## Outputs
 **System.Management.Automation.PSCustomObject**
+
 This cmdlet returns a PSCustomObject containing the details of the license(s).
 ## Notes
 This CmdLet does not require an Internet connection, except when using switch LicenseText.

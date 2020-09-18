@@ -1,4 +1,4 @@
-# Bca.Spdx `0.1.0`
+# Bca.Spdx `0.1.2`
 Tags: `Exception` `FreeSoftwareFoundation` `FSF` `Licence` `Linux` `MacOS` `OpenSourceInitiative` `OSI` `PowerShell` `SoftwarePackageDataExchange` `SPDX` `Windows`
 
 PowerShell module to interract with SPDX licences information.
