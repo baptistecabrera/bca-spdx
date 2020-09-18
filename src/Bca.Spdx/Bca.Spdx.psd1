@@ -84,13 +84,15 @@
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData   = @{
 
-        License          = "GPL-3.0-or-later"
+        License          = "MIT"
 
-        docsUrl          = "https://github.com/baptistecabrera/bca-spdx/doc"
+        repositoryUrl    = "https://github.com/baptistecabrera/bca-spdx.git"
+
+        docsUrl          = "https://github.com/baptistecabrera/bca-spdx/tree/master/doc"
         mailingListUrl   = "https://github.com/baptistecabrera/bca-spdx/issues"
         bugTrackerUrl    = "https://github.com/baptistecabrera/bca-spdx/issues"
-        packageSourceUrl = "https://github.com/baptistecabrera/bca-spdx/src"
-        projectSourceUrl = "https://github.com/baptistecabrera/bca-spdx/src"
+        packageSourceUrl = "https://github.com/baptistecabrera/bca-spdx/tree/master/src"
+        projectSourceUrl = "https://github.com/baptistecabrera/bca-spdx/tree/master/src"
 
         PSData           = @{
 
@@ -98,7 +100,7 @@
             Tags         = @('PowerShell', 'SPDX', 'SoftwarePackageDataExchange', 'Licence', 'Exception', 'FSF', 'OSI', 'FreeSoftwareFoundation', 'OpenSourceInitiative', "Windows", "Linux", "MacOS")
 
             # A URL to the license for this module.
-            LicenseUri   = 'https://spdx.org/licenses/GPL-3.0-or-later.html'
+            LicenseUri   = 'https://github.com/baptistecabrera/bca-spdx/blob/master/LICENSE'
 
             # A URL to the main website for this project.
             ProjectUri   = 'https://github.com/baptistecabrera/bca-spdx'
@@ -111,8 +113,7 @@
 - Supports SPDX licenses and license exceptions;
 - Supports Windows, Linux and MacOS;
 - Supports languages for English and French;
-- Minor fixes and enhancements;
-- Now distributed under GPL 3.0 license.'
+- Minor fixes and enhancements.'
 
             # Prerelease of this module
             Prerelease   = ''
