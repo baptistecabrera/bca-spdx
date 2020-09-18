@@ -1,7 +1,5 @@
-# System.Object[] `System.Object[]`
+# Bca.Spdx `0.1.2`
 Tags: `Exception` `FreeSoftwareFoundation` `FSF` `Licence` `Linux` `MacOS` `OpenSourceInitiative` `OSI` `PowerShell` `SoftwarePackageDataExchange` `SPDX` `Windows`
-
-Minimum PowerShell version: ``
 
 PowerShell module to interract with SPDX licences information.
 
@@ -22,7 +20,6 @@ PowerShell module to interract with SPDX licences information.
 - Supports SPDX licenses and license exceptions;
 - Supports Windows, Linux and MacOS;
 - Supports languages for English and French;
-- Minor fixes and enhancements;
-- Now distributed under GPL 3.0 license.
+- Minor fixes and enhancements.
 ---
-[System.Object[]](System.Object[])
+[Bca.Spdx](https://github.com/baptistecabrera/bca-spdx)
