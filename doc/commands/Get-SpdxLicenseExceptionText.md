@@ -1,5 +1,6 @@
 # Get-SpdxLicenseExceptionText
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Gets an SPDX License exception text.
@@ -7,25 +8,25 @@ Gets an SPDX License exception text.
 Gets an SPDX License exception text from https://spdx.org.
 ## Syntax
 ### FromId (default)
-```ps
+```powershell
 Get-SpdxLicenseExceptionText -Id <string> [<CommonParameters>]
 ```
 ### FromName
-```ps
+```powershell
 Get-SpdxLicenseExceptionText -Name <string> [<CommonParameters>]
 ```
 ### FromReferenceNumber
-```ps
+```powershell
 Get-SpdxLicenseExceptionText -ReferenceNumber <int> [<CommonParameters>]
 ```
 ## Examples
 ### Example 1
-```ps
+```powershell
 Get-SpdxLicenseExceptionText -Id "Libtool-exception"
 ```
 This example will return the text of the license exception "Libtool-exception" (Libtool Exception).
 ### Example 2
-```ps
+```powershell
 Get-SpdxLicenseExceptionText -Name "Linux Syscall Note"
 ```
 This example will return the text of the license exception named "Linux Syscall Note".
@@ -70,8 +71,10 @@ An integer containing the reference number of the license exception.
 ## Inputs
 ****
 
+
 ## Outputs
 **System.String**
+
 This cmdlet returns a string containing the text of the license exception.
 ## Notes
 This CmdLet requires an Internet connection.

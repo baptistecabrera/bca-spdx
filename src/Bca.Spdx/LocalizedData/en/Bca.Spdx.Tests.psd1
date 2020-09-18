@@ -74,4 +74,13 @@
         Describe = "Update-SpdxLicenseException (offline)"
         Update   = "Simulating update of license exception file."
     }
+
+    TestSpdxLicenseExpression         = @{
+        Describe      = "Test-SpdxLicenseExpression"
+        Or            = "Testing expression with 'OR' (OSI approved)."
+        And           = "Testing expression with 'AND' (FSF Libre)."
+        And2          = "Testing expression with 2 'ANDs' (FSF and OSI)."
+        AndDeprecated = "Testing expression with 'AND' (excluding deprecated)."
+        WithPlus      = "Testing expression with 'WITH' and '+'."
+    }
 }

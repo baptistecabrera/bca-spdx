@@ -1,4 +1,8 @@
 # Bca.Spdx
+![Platform](https://img.shields.io/powershellgallery/p/Bca.Spdx?logo=powershell&logoColor=white) [![License: MIT](https://img.shields.io/github/license/baptistecabrera/bca-spdx?logo=open-source-initiative&logoColor=white)](https://opensource.org/licenses/MIT)
+
+[![GitHub Release](https://img.shields.io/github/v/tag/baptistecabrera/bca-spdx?logo=github&logoColor=white&label=release)](https://github.com/baptistecabrera/bca-spdx/releases) [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Bca.Spdx?color=informational&logo=powershell&logoColor=white)](https://www.powershellgallery.com/packages/Bca.Spdx) [![Nuget](https://img.shields.io/nuget/v/Bca.Spdx?color=informational&logo=nuget&logoColor=white)](https://www.nuget.org/packages/Bca.Spdx/) [![Chocolatey](https://img.shields.io/chocolatey/v/bca-spdx?color=informational&logo=chocolatey&logoColor=white)](https://chocolatey.org/packages/bca-spdx)
+
 
 ## Description
 
@@ -27,15 +31,15 @@ Find extended documentation [at this page](doc/ReadMe.md).
 ### The easiest way
 
 In a PowerShell console, run the following:
-```ps
+```powershell
 Find-Module -Name Bca.Spdx | Install-Module
 ```
 
 ### Package
 
-_Bca.Spdx_ is available as a package from _[PowerShell Gallery](https://www.powershellgallery.com/)_, _[NuGet](https://www.nuget.org/)_ and _[Chocolatey](https://chocolatey.org/)_, please refer to each specific plateform on how to install the package.
+_Bca.Spdx_ is available as a package from _[PowerShell Gallery](https://www.powershellgallery.com/)_, _[NuGet](https://www.nuget.org/)_ and _[Chocolatey](https://chocolatey.org/)_*, please refer to each specific plateform on how to install the package.
 
-\* Availability on Chocolatey is subject to manual verification.
+\* Availability on Chocolatey is subject to approval.
 
 ### Manually
 
@@ -59,7 +63,7 @@ _Please not that to date I am the only developper for this module._
 [![Build Status](https://dev.azure.com/baptistecabrera/Bca/_apis/build/status/Build/Bca.Spdx?repoName=bca-spdx&branchName=master)](https://dev.azure.com/baptistecabrera/Bca/_build/latest?definitionId=18&repoName=bca-spdx&branchName=master)
 
 The CI is an Azure DevOps build pipeline that will:
-- Test the module with _[Pester](https://pester.dev/)_ tests;
+- Test the module and does code coverage with _[Pester](https://pester.dev/)_;
 - Run the _[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)_;
 - Mirror the repository to GitHub
 

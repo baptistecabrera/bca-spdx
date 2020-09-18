@@ -1,17 +1,18 @@
 # Get-SpdxSourceUrl
 Type: Function
+
 Module: [Bca.Spdx](../ReadMe.md)
 
 Gets SPDX license and exception source URL.
 ## Description
 Gets SPDX license and exception source URL.
 ## Syntax
-```ps
+```powershell
 Get-SpdxSourceUrl [<CommonParameters>]
 ```
 ## Examples
 ### Example 1
-```ps
+```powershell
 Get-SpdxSourceUrl
 ```
 This example will return the URI.
@@ -19,6 +20,8 @@ This example will return the URI.
 ## Inputs
 ****
 
+
 ## Outputs
 **System.Uri**
+
 This cmdlet returns a URI.

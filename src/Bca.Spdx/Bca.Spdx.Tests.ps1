@@ -246,3 +246,50 @@ Describe $global:TestLocalizedData.UpdateSpdxLicenseExceptionOffline.Describe -T
         $Result | Should -Be $true
     }
 }
+
+Describe $global:TestLocalizedData.TestSpdxLicenseExpression.Describe -Tags "Online", "Offline" {
+    It $global:TestLocalizedData.TestSpdxLicenseExpression.Or {
+        try
+        {
+            $Result = Test-SpdxLicenseExpression -Expression "(LGPL-2.1 OR MIT)" -OsiApproved
+        }
+        catch { $Result = $false }
+        $Result | Should -Be $true
+    }
+
+    It $global:TestLocalizedData.TestSpdxLicenseExpression.And {
+        try
+        {
+            $Result = Test-SpdxLicenseExpression -Expression "(LGPL-2.1 AND MIT)" -FsfLibre
+        }
+        catch { $Result = $false }
+        $Result | Should -Be $true
+    }
+
+    It $global:TestLocalizedData.TestSpdxLicenseExpression.And2 {
+        try
+        {
+            $Result = Test-SpdxLicenseExpression -Expression "(LGPL-2.1 AND MIT AND GPL-3.0)" -FsfAndOsi
+        }
+        catch { $Result = $false }
+        $Result | Should -Be $true
+    }
+
+    It $global:TestLocalizedData.TestSpdxLicenseExpression.AndDeprecated {
+        try
+        {
+            $Result = Test-SpdxLicenseExpression -Expression "(LGPL-2.1 AND MIT)" -ExcludeDeprecated -FsfOrOsi -ErrorAction SilentlyContinue
+        }
+        catch { $Result = $true }
+        $Result | Should -Be $false
+    }
+
+    It $global:TestLocalizedData.TestSpdxLicenseExpression.WithPlus {
+        try
+        {
+            $Result = Test-SpdxLicenseExpression -Expression "(GPL-2.0+ WITH Bison-exception-2.2)" -FsfAndOsi
+        }
+        catch { $Result = $false }
+        $Result | Should -Be $true
+    }
+}
